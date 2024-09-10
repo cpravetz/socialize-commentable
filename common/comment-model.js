@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved, no-use-before-define */
-import SimpleSchema from 'simpl-schema';
+import SimpleSchema from 'meteor/aldeed:simple-schema';
 /* eslint-enable import/no-unresolved */
 
 export default ({ Meteor, Mongo, LinkableModel, LinkParent, LikeableModel, ServerTime }) => {
@@ -77,7 +77,6 @@ export default ({ Meteor, Mongo, LinkableModel, LinkParent, LikeableModel, Serve
     const CommentSchema = new SimpleSchema({
         userId: {
             type: String,
-            regEx: SimpleSchema.RegEx.Id,
             autoValue() {
                 if (this.isInsert) {
                     return Meteor.userId();
